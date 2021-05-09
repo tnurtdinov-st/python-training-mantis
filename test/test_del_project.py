@@ -8,6 +8,12 @@ def test_del_project(app):
     app.project.configuration_tab()
     #Запрос списка проектов
     project = app.project.get_project_list()
+    #Проверка на отсутствие проектов
+    if len(project)==0:
+        new_name = "Test " + str(random.randint(0, 10000))
+        # Создание проекта с возвратом id проекта
+        app.project.create_new_rpoject(new_name, new_name)
+        project = app.project.get_project_list()
     #Выбор рандомного проекта на удаление
     del_pro = random.choice(project)
     #Проверка корректностип перехода в профиль нужного проекта
