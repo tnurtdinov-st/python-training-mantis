@@ -7,8 +7,8 @@ class ProjectHelper():
 
     def configuration_tab(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("управление").click()
-        wd.find_element_by_link_text("Управление проектами").click()
+        wd.find_element_by_link_text("Manage").click()
+        wd.find_element_by_link_text("Manage Projects").click()
 
     def get_project_list(self):
         wd = self.app.wd
@@ -38,14 +38,14 @@ class ProjectHelper():
 
     def create_new_rpoject(self, name, description):
         wd = self.app.wd
-        wd.find_element_by_xpath(u"//input[@value='создать новый проект']").click()
+        wd.find_element_by_xpath(u"//input[@value='Create New Project']").click()
         wd.find_element_by_id("project-name").click()
         wd.find_element_by_id("project-name").clear()
         wd.find_element_by_id("project-name").send_keys(name)
         wd.find_element_by_id("project-description").click()
         wd.find_element_by_id("project-description").clear()
         wd.find_element_by_id("project-description").send_keys(description)
-        wd.find_element_by_xpath(u"//input[@value='Добавить проект']").click()
+        wd.find_element_by_xpath(u"//input[@value='Add Project']").click()
         return self.get_project_id(name)
 
 
@@ -57,7 +57,7 @@ class ProjectHelper():
 
     def delete_project(self):
         wd = self.app.wd
-        wd.find_element_by_xpath(u"//input[@value='Удалить проект']").click()
-        wd.find_element_by_xpath(u"//input[@value='Удалить проект']").click()
+        wd.find_element_by_xpath(u"//input[@value='Delete Project']").click()
+        wd.find_element_by_xpath(u"//input[@value='Delete Project']").click()
 
 
